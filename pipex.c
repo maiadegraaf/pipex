@@ -6,7 +6,7 @@
 /*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/16 14:58:07 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/17 16:38:35 by mgraaf        ########   odam.nl         */
+/*   Updated: 2021/12/17 16:44:10 by mgraaf        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	child1_process(t_pipex *info, int *end)
 	char	*mycmd;
 
 	if (dup2(info->f1, STDIN_FILENO) < 0)
-		return (perror("incorrect dup2\n"));
+		return (perror("Dup "));
 	if (dup2(end[1], STDOUT_FILENO) < 0)
-		return (perror("incorrect end[1]\n"));
+		return (perror("Dup "));
 	close(end[0]);
 	close(info->f1);
 	i = 0;
@@ -32,6 +32,7 @@ void	child1_process(t_pipex *info, int *end)
 		free(mycmd);
 		i++;
 	}
+	perror("Cmd not found ");
 	exit(EXIT_FAILURE);
 }
 
@@ -41,9 +42,9 @@ void	child2_process(t_pipex *info, int *end)
 	char	*mycmd;
 
 	if (dup2(info->f2, STDOUT_FILENO) < 0)
-		return (perror("aksd\n"));
+		return (perror("Dup "));
 	if (dup2(end[0], STDIN_FILENO) < 0)
-		return (perror("end[0]\n"));
+		return (perror("Dup "));
 	close(end[1]);
 	close(info->f2);
 	i = 0;
@@ -55,6 +56,7 @@ void	child2_process(t_pipex *info, int *end)
 		free(mycmd);
 		i++;
 	}
+	perror("Cmd not found ");
 	exit(EXIT_FAILURE);
 }
 
@@ -98,6 +100,5 @@ int	main(int argc, char **argv, char **envp)
 	info.cmds2 = ft_split(argv[3], ' ');
 	info.paths = parse_envp(argv, envp);
 	pipex(&info);
-	system("leaks pipex");
 	return (0);
 }
