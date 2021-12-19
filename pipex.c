@@ -6,7 +6,7 @@
 /*   By: mgraaf <mgraaf@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/16 14:58:07 by mgraaf        #+#    #+#                 */
-/*   Updated: 2021/12/17 16:44:10 by mgraaf        ########   odam.nl         */
+/*   Updated: 2021/12/17 18:03:46 by mgraaf        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,11 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	info;
 
+	if (argc != 5)
+	{
+		perror("Invalid number of arguments");
+		exit(EXIT_FAILURE);
+	}
 	info.f1 = open(argv[1], O_RDONLY);
 	info.f2 = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (info.f1 < 0 || info.f2 < 0)
