@@ -65,7 +65,7 @@ The first child uses `dup2()` to replace STDIN with the infile file descriptor, 
 While the child processes are ongoing, using `waitpid()`, `pipex()` waits for the processes to end. Once they are done, the program ends.
 
 ## Installation
-### Clone the repository:
+### Clone the repository
 ``` 
 git clone https://github.com/maiadegraaf/pipex.git
 cd pipex
@@ -79,7 +79,7 @@ $> < infile cmd1 | cmd2 > outfile
 
 You have to create an infile for the program to read from.  The program creates its own outfile.
 
-### Some commands to try:
+### Some commands to try
 These also create infiles to read from, and displays the outfile.
 <br>
 <br>
