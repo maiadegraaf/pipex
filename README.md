@@ -3,18 +3,20 @@
 This project is somewhat of a precurser to [minishell](https://github.com/maiadegraaf), a project where we recreate bash.  Although, in pipex, the goal is just to replicate the working of pipes (`|`), it further serves as an introduction to using the `pipe()`, `fork()`, `dup()` and `execve()` functions.  It was also the first time I encountered multiple processes.
 
 ## Table of Contents
-- [How Real Pipes Work in Bash](#how-real-pipes-work-in-bash)
-- [An Overview of Useful Functions](#an-overview-of-useful-functions)
-- [Input](#input)
-- [Order of Operations](#order-of-operations)
-	- [Handle the Input](#handle-the-input)
-	- [Creating Pipes and Forks](#creating-pipes-and-forks)
-	- [Child Processes](#child-processes)
-	- [Wait.....](#wait)
-- [Installation](#installation)
-	- [Clone the repository:](#clone-the-repository)
-	- [Expected Input](#expected-input)
-	- [Some commands to try:](#some-commands-to-try)
+- [pipex](#pipex)
+	- [Table of Contents](#table-of-contents)
+	- [How Real Pipes Work in Bash](#how-real-pipes-work-in-bash)
+	- [Input](#input)
+	- [An Overview of Useful Functions](#an-overview-of-useful-functions)
+	- [Order of Operations](#order-of-operations)
+			- [Handle the Input](#handle-the-input)
+			- [Creating Pipes and Forks](#creating-pipes-and-forks)
+			- [Child Processes](#child-processes)
+			- [Wait.....](#wait)
+	- [Installation](#installation)
+		- [Clone the repository:](#clone-the-repository)
+		- [Expected Input](#expected-input)
+		- [Some commands to try:](#some-commands-to-try)
 
 ## How Real Pipes Work in Bash
 
@@ -32,6 +34,15 @@ $> < infile cmd1 | cmd2 > outfile
 
 Bash reads from the `infile`, then executes `cmd1` using the `infile` as input, the output of which is sent to `cmd2` which then writes to the `outile` after executing.  It is specifically this function that pipex replicates. 
 
+## Input
+
+The input pipex takes is slightly different than bash.  As shown below.
+```sh
+./pipex infile cmd1 cmd2 outfile
+```
+
+This means we don't have to parse any tokens (`<`, `>`, or `|`), and instead focus on the 4 arguments.
+
 ## An Overview of Useful Functions
 
 | Function | Explanation |
@@ -41,15 +52,6 @@ Bash reads from the `infile`, then executes `cmd1` using the `infile` as input, 
 | `int dup2(int fd1, int fd2)`| Closes fd2 and duplicates the value of fd2 to fd1|
 | `int execve(const char *path, char *const argv[], char *const envp[]);` | Executes the command passed as a 2D array |
 
-
-## Input
-
-The input pipex takes is slightly different than bash.  As shown below.
-```sh
-./pipex infile cmd1 cmd2 outfile
-```
-
-This means we don't have to parse any tokens (`<`, `>`, or `|`), and instead focus on the 4 arguments.
 
 ## Order of Operations
 #### Handle the Input
