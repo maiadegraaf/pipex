@@ -12,9 +12,9 @@ This project is somewhat of a precurser to [minishell](https://github.com/maiade
 	- [Child Processes](#child-processes)
 	- [Wait.....](#wait)
 - [Installation](#installation)
-	- [Clone the repository:](#clone-the-repository)
+	- [Clone the repository](#clone-the-repository)
 	- [Expected Input](#expected-input)
-	- [Some commands to try:](#some-commands-to-try)
+	- [Some commands to try](#some-commands-to-try)
 
 ## How Real Pipes Work in Bash
 
