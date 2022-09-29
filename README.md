@@ -3,20 +3,18 @@
 This project is somewhat of a precurser to [minishell](https://github.com/maiadegraaf), a project where we recreate bash.  Although, in pipex, the goal is just to replicate the working of pipes (`|`), it further serves as an introduction to using the `pipe()`, `fork()`, `dup()` and `execve()` functions.  It was also the first time I encountered multiple processes.
 
 ## Table of Contents
-- [pipex](#pipex)
-	- [Table of Contents](#table-of-contents)
-	- [How Real Pipes Work in Bash](#how-real-pipes-work-in-bash)
-	- [Input](#input)
-	- [An Overview of Useful Functions](#an-overview-of-useful-functions)
-	- [Order of Operations](#order-of-operations)
-			- [Handle the Input](#handle-the-input)
-			- [Creating Pipes and Forks](#creating-pipes-and-forks)
-			- [Child Processes](#child-processes)
-			- [Wait.....](#wait)
-	- [Installation](#installation)
-		- [Clone the repository:](#clone-the-repository)
-		- [Expected Input](#expected-input)
-		- [Some commands to try:](#some-commands-to-try)
+- [How Real Pipes Work in Bash](#how-real-pipes-work-in-bash)
+- [Input](#input)
+- [An Overview of Useful Functions](#an-overview-of-useful-functions)
+- [Order of Operations](#order-of-operations)
+	- [Handle the Input](#handle-the-input)
+	- [Creating Pipes and Forks](#creating-pipes-and-forks)
+	- [Child Processes](#child-processes)
+	- [Wait.....](#wait)
+- [Installation](#installation)
+	- [Clone the repository:](#clone-the-repository)
+	- [Expected Input](#expected-input)
+	- [Some commands to try:](#some-commands-to-try)
 
 ## How Real Pipes Work in Bash
 
