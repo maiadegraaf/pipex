@@ -90,7 +90,7 @@ ls -la > infile
 ./pipex infile 'grep pipe' 'tr a-z A-Z' outfile
 cat outfile
 ```
- Greps all lines with 'pipe' and capitalizes them.
+*Greps all lines with 'pipe' and capitalizes them.*
 <br>
 <br>
 ```sh
@@ -98,7 +98,7 @@ cat README.md > infile
 ./pipex infile "sed s/pipex/some_other_name/g" "wc -l" outfile
 cat outfile
 ```
-Changes all occurrences of 'pipex' with 'some_other_name', then outputs the amount of changed lines to the outfile.
+*Changes all occurrences of 'pipex' with 'some_other_name', then outputs the amount of changed lines to the outfile.*
 <br>
 <br>
 ```sh
@@ -106,4 +106,4 @@ echo $PATH > infile
 ./pipex infile "grep -o :" "wc -w" outfile
 cat outfile
 ```
-Counts the occurrences of `:` in PATH, an environment variable.
+*Counts the occurrences of `:` in PATH, an environment variable.*
